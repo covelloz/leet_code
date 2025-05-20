@@ -14,7 +14,7 @@ pub fn triangle_type(nums: Vec<i32>) -> String {
     if &complement_sum <= &length {
       is_invalid = true;
     }
-    
+ 
     // count triangle side-lengths occurences
     let existing: Option<&i32> = map.get(&length);
 
@@ -28,7 +28,7 @@ pub fn triangle_type(nums: Vec<i32>) -> String {
   if is_invalid {
     return String::from("none")
   }
-  
+ 
   let keys = map.keys().count();
 
   return match keys {
