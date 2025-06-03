@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-pub fn longest_sub(input: String) -> i32 {
+pub fn longest_substring_wo_repeating_chars(input: String) -> i32 {
   let mut char_idx: HashMap<char, usize> = HashMap::new();
   let mut max_len: usize = 0;
   let mut left_idx: usize = 0;

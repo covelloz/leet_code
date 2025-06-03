@@ -6,7 +6,9 @@ pub fn triangle_type(nums: Vec<i32>) -> String {
 
   nums.iter().enumerate().for_each(|(idx, &length)| {
     // check triangle validity
-    let complement_sum: i32 = nums.iter().enumerate()
+    let complement_sum: i32 = nums
+      .iter()
+      .enumerate()
       .filter(|&(i, _)| i != idx)
       .map(|(_, &l)| l)
       .sum();
@@ -14,7 +16,7 @@ pub fn triangle_type(nums: Vec<i32>) -> String {
     if &complement_sum <= &length {
       is_invalid = true;
     }
- 
+
     // count triangle side-lengths occurences
     let existing: Option<&i32> = map.get(&length);
 
@@ -26,15 +28,15 @@ pub fn triangle_type(nums: Vec<i32>) -> String {
   });
 
   if is_invalid {
-    return String::from("none")
+    return String::from("none");
   }
- 
+
   let keys = map.keys().count();
 
   return match keys {
     1 => String::from("equilateral"),
     2 => String::from("isosceles"),
     3 => String::from("scalene"),
-    _ => String::from("none")
-  }
+    _ => String::from("none"),
+  };
 }
