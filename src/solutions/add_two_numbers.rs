@@ -23,9 +23,9 @@ pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> 
   // algorithm
   //  compute: \sum_{k=0,i=0,j=0}^max(N, M) (i + j) * 10^k
   //  where
-  //    N:=len(l) and M:=len(l2)
+  //    N:=len(l1) and M:=len(l2)
   //    0<=i<=N & 0<=j<=M
-  //  with i,j = 0 if out-of-bounds
+  //  with i,j:=0 if out-of-bounds
 
   let mut l1_mref = l1.as_ref();
   let mut l2_mref = l2.as_ref();
