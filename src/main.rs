@@ -1,9 +1,9 @@
 use solutions::add_two_numbers::ListNode;
 
+use crate::solutions::add_two_numbers::add_two_numbers;
 use crate::solutions::longest_substring_wo_repeating_chars::longest_substring_wo_repeating_chars;
 use crate::solutions::triangle_type::triangle_type;
 use crate::solutions::two_sum::two_sum;
-use crate::solutions::add_two_numbers::add_two_numbers;
 
 mod solutions;
 
@@ -14,8 +14,11 @@ fn main() {
     "{:?}",
     longest_substring_wo_repeating_chars(String::from("abcabcbb"))
   );
-  println!("{:?}", add_two_numbers(
-    ListNode::vec_to_ll(vec![2,4,3]),
-    ListNode::vec_to_ll(vec![5,6,4])
-  ));
+  println!(
+    "{:?}",
+    add_two_numbers(
+      ListNode::vec_to_ll(vec![2, 4, 3]),
+      ListNode::vec_to_ll(vec![5, 6, 4])
+    )
+  );
 }

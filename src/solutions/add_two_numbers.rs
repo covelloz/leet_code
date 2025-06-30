@@ -1,7 +1,7 @@
 #[derive(PartialEq, Eq, Clone, Debug)]
- pub struct ListNode {
+pub struct ListNode {
   pub val: i32,
-  pub next: Option<Box<ListNode>>
+  pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
@@ -14,7 +14,10 @@ impl ListNode {
   }
 }
 
-pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+pub fn add_two_numbers(
+  l1: Option<Box<ListNode>>,
+  l2: Option<Box<ListNode>>,
+) -> Option<Box<ListNode>> {
   // algorithm
   //  compute: \sum_{k=0,i=0,j=0}^max(N, M) (i + j) * 10^k
   //  where
@@ -47,7 +50,10 @@ pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> 
     }
 
     // insert digit into linked list (at tail)
-    let new_node = Some(Box::new(ListNode { val: digit, next: None }));
+    let new_node = Some(Box::new(ListNode {
+      val: digit,
+      next: None,
+    }));
     *result_next = new_node; // sets new_node as 'next' on the previous node
 
     if let Some(node) = result_next {
