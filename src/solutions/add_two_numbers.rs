@@ -5,11 +5,6 @@
 }
 
 impl ListNode {
-  #[inline]
-  fn new(val: i32) -> Self {
-    ListNode { val, next: None }
-  }
-
   pub fn vec_to_ll(input: Vec<i32>) -> Option<Box<ListNode>> {
     let mut head = None;
     for &val in input.iter().rev() {
@@ -31,8 +26,8 @@ pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> 
   let mut l2_mref = l2.as_ref();
 
   // initialize linked list
-  let mut result_start: Option<Box<ListNode>> = None;
-  let mut result_iter = &mut result_start;
+  let mut result: Option<Box<ListNode>> = None;
+  let mut result_next = &mut result;
   let mut carry = 0;
 
   while l1_mref.is_some() || l2_mref.is_some() || carry > 0 {
@@ -53,15 +48,15 @@ pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> 
 
     // insert digit into linked list (at tail)
     let new_node = Some(Box::new(ListNode { val: digit, next: None }));
-    *result_iter = new_node;
+    *result_next = new_node; // sets new_node as 'next' on the previous node
 
-    if let Some(node) = result_iter {
-      result_iter = &mut node.next;
+    if let Some(node) = result_next {
+      result_next = &mut node.next; // update ref for the next iteration
     }
 
     l1_mref = l1_mref.as_ref().and_then(|node| node.next.as_ref());
     l2_mref = l2_mref.as_ref().and_then(|node| node.next.as_ref());
   }
 
-  result_start
+  result
 }
